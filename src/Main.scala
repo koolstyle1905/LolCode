@@ -2,7 +2,7 @@ import scala.io.Source
 
 object Main extends App {
   println(new java.io.File(".").getCanonicalPath)
-  val inputFile = "ControlFlow.in"
+  val inputFile = "Loop.in"
   val lines = Source.fromFile("./testcase/" + inputFile).getLines
   val input = if (!lines.isEmpty) lines.reduceLeft[String](_ + '\n' + _) else ""
   println(input + "\n=====================\n")
@@ -20,5 +20,4 @@ object Main extends App {
   val parser = new LolParser
   val result = parser.parse(input)
   println(result)
-
 }
