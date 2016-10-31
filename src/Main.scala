@@ -2,7 +2,7 @@ import scala.io.Source
 
 object Main extends App {
   println(new java.io.File(".").getCanonicalPath)
-  val inputFile = "Loop.in"
+  val inputFile = "ControlFlow.in"
   val lines = Source.fromFile("./testcase/" + inputFile).getLines
   val input = if (!lines.isEmpty) lines.reduceLeft[String](_ + '\n' + _) else ""
   println(input + "\n=====================\n")
@@ -12,7 +12,7 @@ object Main extends App {
 
   runAll(scanner)
 
-  def runAll(scan : lexical.Scanner) : Any = if (scan.atEnd) println("EOF") else {
+  def runAll(scan: lexical.Scanner): Any = if (scan.atEnd) println("EOF") else {
     println(scan.first, scan.first.getClass.getSimpleName)
     runAll(scan.rest)
   }
