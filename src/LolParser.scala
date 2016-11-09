@@ -82,7 +82,10 @@ class LolParser extends StdTokenParsers {
   def valueCase: Parser[ValueCasePT] = ("OMG" ~> rep(value <~ eol)) ~ rep(statement) <~ opt(break) ^^ {
     case a ~ b => new ValueCasePT(a, b)
   }
-
+  def valueCase: Parser[ValueCasePT] = "OMG" ~> rep(opt("OMG") ~> value <~ eol ) ~ rep(statement) <~ opt(break) ^^ {
+    case a ~ b => new ValueCasePT(a, b)
+  }
+  
   def defaultCase: Parser[DefaultCasePT] = ("OMGWTF" ~ eol) ~> rep(statement) ^^ {
     case a => new DefaultCasePT(a)
   }
